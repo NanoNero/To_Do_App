@@ -1,26 +1,18 @@
 package com.example.nerurkar.todoapp;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.renderscript.Element;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CursorAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -29,16 +21,12 @@ import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TabHost;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 ;
-
-import static android.app.DatePickerDialog.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -232,6 +220,40 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("ThingMain", user.get("main"));
                 i.putExtra("ThingSub", user.get("sub"));
                 startActivity(i);
+            }
+        });
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+
+                PopupMenu popupMenu = new PopupMenu(getApplicationContext(), view);
+                popupMenu.inflate(R.menu.menu_main);
+                popupMenu.show();
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if (item.getItemId() == R.id.Delete) {
+                            Toast.makeText(getApplicationContext(), "Deleting",Toast.LENGTH_LONG).show();
+                            /*HashMap<String, String> user = userList.get(position);
+                            String ID = user.get("id");
+                            DbHandler db = new DbHandler(MainActivity.this);
+                            db.DeleteUser(Integer.parseInt(ID));
+                            setListViewAdapter(lv);*/
+                        }
+
+                        else if (item.getItemId() == R.id.Edit) {
+                            Toast.makeText(getApplicationContext(), "Editting",Toast.LENGTH_LONG).show();
+                            // Intent i =  new Intent();
+                            // startActivity(i);
+                        }
+
+                        return false;
+                    }
+                });
+
+                return true;
             }
         });
 
