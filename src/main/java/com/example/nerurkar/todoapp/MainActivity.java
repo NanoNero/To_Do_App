@@ -2,28 +2,25 @@ package com.example.nerurkar.todoapp;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.app.LocalActivityManager;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.renderscript.Element;
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CursorAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -35,17 +32,11 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
+;
 
 import static android.app.DatePickerDialog.*;
 
@@ -68,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DesTxt = (EditText)findViewById(R.id.des);
-        DateTxt = (EditText)findViewById(R.id.date);
-        TimeTxt = (EditText)findViewById(R.id.time);
-        final Button done = (Button)findViewById(R.id.done_button);
+        DesTxt = (EditText) findViewById(R.id.des);
+        DateTxt = (EditText) findViewById(R.id.date);
+        TimeTxt = (EditText) findViewById(R.id.time);
+        final Button done = (Button) findViewById(R.id.done_button);
         //ColorTheme = (Button)findViewById(R.id.ColorTheme);
         //Reminder = (CheckBox)findViewById(R.id.Reminder);
 
@@ -118,18 +109,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        final String[] PriorityOptions = {" ","High","Medium", "Low"};
-        final String[] MainCatOptions = {" ","Appointments","Chores and Errands","Back to books","Shopping","Time for some fun!","Anything else?"};
-        final String[] SubShop = {" ","Groceries","Medicines","Clothes and Accessories","Gift", "Other"};
-        final String[] SubBook = {" ","Tests","Assignments","Library","Buy books"};
-        final String[] SubAppoint = {" ","Doctor","Meeting","Get-together", "Other"};
-        final String[] SubChores = {" ","Pay bills","Cleaning","Run to the Gas Station", "Other"};
-        final String[] SubFun = {" ","Travel","Restaurants","Amusement Parks"};
+        final String[] PriorityOptions = {" ", "High", "Medium", "Low"};
+        final String[] MainCatOptions = {" ", "Appointments", "Chores and Errands", "Back to books", "Shopping", "Time for some fun!", "Anything else?"};
+        final String[] SubShop = {" ", "Groceries", "Medicines", "Clothes and Accessories", "Gift", "Other"};
+        final String[] SubBook = {" ", "Tests", "Assignments", "Library", "Buy books"};
+        final String[] SubAppoint = {" ", "Doctor", "Meeting", "Get-together", "Other"};
+        final String[] SubChores = {" ", "Pay bills", "Cleaning", "Run to the Gas Station", "Other"};
+        final String[] SubFun = {" ", "Travel", "Restaurants", "Amusement Parks"};
         final String[] SubElse = {" "};
 
-        Pspinner = (Spinner)findViewById(R.id.Pspinner);
-        Mspinner = (Spinner)findViewById(R.id.Mspinner);
-        Sspinner = (Spinner)findViewById(R.id.Sspinner);
+        Pspinner = (Spinner) findViewById(R.id.Pspinner);
+        Mspinner = (Spinner) findViewById(R.id.Mspinner);
+        Sspinner = (Spinner) findViewById(R.id.Sspinner);
 
 
         ArrayAdapter<String> MspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, MainCatOptions);
@@ -142,16 +133,32 @@ public class MainActivity extends AppCompatActivity {
                         MainTxt = MainCatOptions[M];
 
 
-                        switch (position){
-                            case 1: {SubCatOptions = SubAppoint;break;}
-                            case 2: {SubCatOptions = SubChores;break;}
-                            case 3: {SubCatOptions = SubBook;break;}
-                            case 4: {SubCatOptions = SubShop;break;}
-                            case 5: {SubCatOptions = SubFun;break;}
-                            default: SubCatOptions = SubElse;
+                        switch (position) {
+                            case 1: {
+                                SubCatOptions = SubAppoint;
+                                break;
+                            }
+                            case 2: {
+                                SubCatOptions = SubChores;
+                                break;
+                            }
+                            case 3: {
+                                SubCatOptions = SubBook;
+                                break;
+                            }
+                            case 4: {
+                                SubCatOptions = SubShop;
+                                break;
+                            }
+                            case 5: {
+                                SubCatOptions = SubFun;
+                                break;
+                            }
+                            default:
+                                SubCatOptions = SubElse;
                         }
 
-                        ArrayAdapter<String> SspinnerAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item,SubCatOptions);
+                        ArrayAdapter<String> SspinnerAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, SubCatOptions);
                         Sspinner.setAdapter(SspinnerAdapter);
                         Sspinner.setEnabled(M != 0);
 
@@ -180,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        ArrayAdapter<String> SspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,SubCatOptions);
+        ArrayAdapter<String> SspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, SubCatOptions);
         Sspinner.setAdapter(SspinnerAdapter);
         Sspinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -195,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-        TabHost tabHost = (TabHost)findViewById(R.id.tabHost);
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
 
         TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("creator");
@@ -207,34 +214,53 @@ public class MainActivity extends AppCompatActivity {
         tabSpec2.setContent(R.id.list);
         tabSpec2.setIndicator("List");
         tabHost.addTab(tabSpec2);
-        DbHandler db = new DbHandler(this);
-        ArrayList<HashMap<String, String>> userList = db.GetUsers();
 
-        ListView lv = (ListView) findViewById(R.id.listView);
-        ListAdapter adapter = new SimpleAdapter(MainActivity.this, userList,
-                R.layout.listview_item,
-                new String[]{"main","desc"},  //Add SUB later
-                new int[]{R.id.rowmain, R.id.rowdes}); //ADD Sub r.id later
-        lv.setAdapter(adapter);
 
+        final ListView lv = (ListView) findViewById(R.id.listView);
+        final ArrayList<HashMap<String, String>> userList = setListViewAdapter(lv);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                HashMap<String, String> user = userList.get(position);
+                Intent i = new Intent(MainActivity.this, ThingLayout.class);
+                i.putExtra("ThingDes", user.get("desc") );
+                i.putExtra("ThingDate", user.get("date"));
+                i.putExtra("ThingTime", user.get("time"));
+                i.putExtra("ThingPriority", user.get("priority"));
+                i.putExtra("ThingMain", user.get("main"));
+                i.putExtra("ThingSub", user.get("sub"));
+                startActivity(i);
+            }
+        });
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimeTxt.setText("");
-                DateTxt.setText("");
-                DesTxt.setText("");
 
                 DbHandler dbHandler = new DbHandler(MainActivity.this);
                 dbHandler.insertUserDetails(MainTxt, SubTxt, DesTxt.getText().toString(),
                         DateTxt.getText().toString(), TimeTxt.getText().toString(), PriorityTxt);
-                //intent = new Intent(MainActivity.this,DetailsActivity.class);
-                //startActivity(intent);
-
+                setListViewAdapter(lv);
                 Toast.makeText(getApplicationContext(), "Thing added to list!", Toast.LENGTH_SHORT).show();
+                TimeTxt.setText("");
+                DateTxt.setText("");
+                DesTxt.setText("");
             }
         });
 
+    }
+
+    public ArrayList<HashMap<String, String>> setListViewAdapter(ListView lv) {
+        DbHandler db = new DbHandler(this);
+        ArrayList<HashMap<String, String>> userList = db.GetUsers();
+        final ListAdapter adapter = new SimpleAdapter(MainActivity.this, userList,
+                R.layout.listview_item,
+                new String[]{"main", "desc"},  //Add SUB later
+                new int[]{R.id.rowmain, R.id.rowdes}); //ADD Sub r.id later
+        lv.setAdapter(adapter);
+        return userList;
     }
 
     @Override
@@ -258,4 +284,5 @@ public class MainActivity extends AppCompatActivity {
 
                 return super.onOptionsItemSelected(item);
             }*/
+
 }

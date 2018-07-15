@@ -123,4 +123,5 @@ public class DbHandler extends SQLiteOpenHelper {
         int count = db.update(TABLE_Users, cVals, KEY_ID+" = ?",new String[]{String.valueOf(id)});
         return  count;
     }
+
 }
