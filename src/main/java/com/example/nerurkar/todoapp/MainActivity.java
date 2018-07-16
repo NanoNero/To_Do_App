@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     int M;
     Intent intent;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         Sspinner = (Spinner) findViewById(R.id.Sspinner);
 
 
-        ArrayAdapter<String> MspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, MainCatOptions);
+        final ArrayAdapter<String> MspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, MainCatOptions);
         Mspinner.setAdapter(MspinnerAdapter);
         Mspinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -119,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         M = Mspinner.getSelectedItemPosition();
                         MainTxt = MainCatOptions[M];
-
 
                         switch (position) {
                             case 1: {
@@ -159,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-        ArrayAdapter<String> PspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PriorityOptions);
+        final ArrayAdapter<String> PspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PriorityOptions);
         Pspinner.setAdapter(PspinnerAdapter);
         Pspinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -175,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        ArrayAdapter<String> SspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, SubCatOptions);
+        final ArrayAdapter<String> SspinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, SubCatOptions);
         Sspinner.setAdapter(SspinnerAdapter);
         Sspinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
@@ -190,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+        final TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
 
         TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("creator");
@@ -205,7 +203,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         final ListView lv = (ListView) findViewById(R.id.listView);
-        final ArrayList<HashMap<String, String>> userList = setListViewAdapter(lv);
+        final DbHandler db = new DbHandler(MainActivity.this);
+        setListViewAdapter(lv);
+        final ArrayList<HashMap<String, String>> userList = db.GetUsers();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, final long id) {
 
                 PopupMenu popupMenu = new PopupMenu(getApplicationContext(), view);
                 popupMenu.inflate(R.menu.menu_main);
@@ -235,18 +235,36 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         if (item.getItemId() == R.id.Delete) {
-                            Toast.makeText(getApplicationContext(), "Deleting",Toast.LENGTH_LONG).show();
-                            /*HashMap<String, String> user = userList.get(position);
-                            String ID = user.get("id");
-                            DbHandler db = new DbHandler(MainActivity.this);
-                            db.DeleteUser(Integer.parseInt(ID));
-                            setListViewAdapter(lv);*/
+
+                            /*String ID = userList.get(position).get("id");
+                            ListAdapter adapter = lv.getAdapter();
+
+                            db.DeleteUser(Integer.parseInt(ID));*/
+
+                            Toast.makeText(getApplicationContext(), "Item Deleted!",Toast.LENGTH_LONG).show();
+                            return true;
                         }
 
                         else if (item.getItemId() == R.id.Edit) {
+                            //TabHost tabHost =  (TabHost) getParent().findViewById(R.id.tabHost);
+                            tabHost.setCurrentTab(0);
+                            HashMap<String, String> user = userList.get(position);
+
+                            TimeTxt.setText(user.get("time"));
+                            DateTxt.setText(user.get("date"));
+                            DesTxt.setText(user.get("desc"));
+                            Mspinner.setSelection(MspinnerAdapter.getPosition(user.get("main")));
+                            Mspinner.setEnabled(false);
+                            Pspinner.setSelection(PspinnerAdapter.getPosition(user.get("priority")));
+
                             Toast.makeText(getApplicationContext(), "Editting",Toast.LENGTH_LONG).show();
-                            // Intent i =  new Intent();
-                            // startActivity(i);
+
+                            //DbHandler db = new DbHandler(MainActivity.this);
+                            //db.UpdateUserDetails(main, sub, desc, date,  time,  pri,  Integer.parseInt(user.get("id")));
+                            //Mspinner.setEnabled(true);
+                            /*TimeTxt.setText("");
+                            DateTxt.setText("");
+                            DesTxt.setText("");*/
                         }
 
                         return false;
@@ -269,12 +287,15 @@ public class MainActivity extends AppCompatActivity {
                 TimeTxt.setText("");
                 DateTxt.setText("");
                 DesTxt.setText("");
+                Mspinner.setSelection(0);
+                Sspinner.setSelection(0);
+                Pspinner.setSelection(0);
             }
         });
 
     }
 
-    public ArrayList<HashMap<String, String>> setListViewAdapter(ListView lv) {
+    public ListAdapter setListViewAdapter(ListView lv) {
         DbHandler db = new DbHandler(this);
         ArrayList<HashMap<String, String>> userList = db.GetUsers();
         final ListAdapter adapter = new SimpleAdapter(MainActivity.this, userList,
@@ -282,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
                 new String[]{"main", "desc"},  //Add SUB later
                 new int[]{R.id.rowmain, R.id.rowdes}); //ADD Sub r.id later
         lv.setAdapter(adapter);
-        return userList;
+        return adapter;
     }
 
     @Override

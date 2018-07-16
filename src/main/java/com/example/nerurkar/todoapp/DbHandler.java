@@ -104,6 +104,7 @@ public class DbHandler extends SQLiteOpenHelper {
         }
         return  userList;
     }
+
     // Delete User Details
     public void DeleteUser(int userid){
         SQLiteDatabase db = this.getWritableDatabase();
