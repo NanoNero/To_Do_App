@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,24 +13,24 @@
         android:id="@+id/relativeLayout1">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Main Category"
             android:id="@+id/thing_main"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_marginTop="12dp"
-            android:textSize="25dp"
-            android:textColor="#EEEEEE"/>
+            android:text="Main Category"
+            android:textColor="#EEEEEE"
+            android:textSize="30dp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Subcategory"
             android:id="@+id/thing_sub"
-            android:layout_below="@+id/thing_main"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:textSize="20dp"
-            android:textColor="#EEEEEE"/>
+            android:layout_below="@+id/thing_main"
+            android:text="Subcategory"
+            android:textColor="#EEEEEE"
+            android:textSize="23dp" />
     </RelativeLayout>
 
     <TextView
@@ -40,48 +41,53 @@
         android:layout_below="@+id/relativeLayout1"
         android:layout_marginTop="31dp"
         android:text="Description"
-        android:textColor="#a59696"
-        android:textSize="15dp" />
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/thing_priority"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/thing_date"
-        android:layout_centerVertical="true"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/textView10"
         android:text="Priority"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#270B61" />
+        android:textColor="#270B61"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/thing_date"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView10"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="54dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/textView9"
+        android:layout_alignBottom="@+id/textView9"
+        android:layout_alignStart="@+id/thing_priority"
         android:ems="10"
         android:inputType="date"
         android:text="Date"
-        android:textColor="#270B61" />
+        android:textColor="#270B61"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/thing_time"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignBottom="@+id/textView10"
-        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/thing_date"
         android:ems="10"
         android:inputType="time"
         android:text="Time"
-        android:textColor="#270B61" />
+        android:textColor="#270B61"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/thing_des"
+        android:layout_marginTop="27dp"
         android:text=" Priority : "
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#270B61" />
@@ -89,11 +95,10 @@
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="60dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="35dp"
         android:text="Time :"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#270B61" />
@@ -101,9 +106,10 @@
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/thing_date"
-        android:layout_alignParentStart="true"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="31dp"
         android:text="Date :"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#270B61" />
