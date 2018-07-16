@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
     String[] SubCatOptions = {" ", "hey", "hello"};
     Button ColorTheme;
     int M;
+    int userID = -10;
     Intent intent;
+    boolean insertFlag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -256,15 +258,9 @@ public class MainActivity extends AppCompatActivity {
                             Mspinner.setSelection(MspinnerAdapter.getPosition(user.get("main")));
                             Mspinner.setEnabled(false);
                             Pspinner.setSelection(PspinnerAdapter.getPosition(user.get("priority")));
-
+                            insertFlag = false;
+                            userID = Integer.parseInt(user.get("id"));
                             Toast.makeText(getApplicationContext(), "Editting",Toast.LENGTH_LONG).show();
-
-                            //DbHandler db = new DbHandler(MainActivity.this);
-                            //db.UpdateUserDetails(main, sub, desc, date,  time,  pri,  Integer.parseInt(user.get("id")));
-                            //Mspinner.setEnabled(true);
-                            /*TimeTxt.setText("");
-                            DateTxt.setText("");
-                            DesTxt.setText("");*/
                         }
 
                         return false;
@@ -280,10 +276,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 DbHandler dbHandler = new DbHandler(MainActivity.this);
+
+                if(insertFlag){
                 dbHandler.insertUserDetails(MainTxt, SubTxt, DesTxt.getText().toString(),
                         DateTxt.getText().toString(), TimeTxt.getText().toString(), PriorityTxt);
                 setListViewAdapter(lv);
                 Toast.makeText(getApplicationContext(), "Thing added to list!", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    dbHandler.UpdateUserDetails(MainTxt, SubTxt, DesTxt.getText().toString(),
+                                DateTxt.getText().toString(),  TimeTxt.getText().toString(), PriorityTxt,
+                                userID);
+                    Mspinner.setEnabled(true);
+                    setListViewAdapter(lv);
+                    insertFlag = true;
+                    userID = -10;
+                 }
+
                 TimeTxt.setText("");
                 DateTxt.setText("");
                 DesTxt.setText("");

@@ -70,10 +70,11 @@ public class DbHandler extends SQLiteOpenHelper {
     public ArrayList<HashMap<String, String>> GetUsers(){
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<HashMap<String, String>> userList = new ArrayList<>();
-        String query = "SELECT main, sub, desc, date, time, priority FROM "+ TABLE_Users;
+        String query = "SELECT id, main, sub, desc, date, time, priority FROM "+ TABLE_Users;
         Cursor cursor = db.rawQuery(query,null);
         while (cursor.moveToNext()){
             HashMap<String,String> user = new HashMap<>();
+            user.put("id",cursor.getString(cursor.getColumnIndex(KEY_ID)));
             user.put("main",cursor.getString(cursor.getColumnIndex(KEY_MAIN)));
             user.put("sub",cursor.getString(cursor.getColumnIndex(KEY_SUB)));
             user.put("desc",cursor.getString(cursor.getColumnIndex(KEY_DESC)));
@@ -88,12 +89,13 @@ public class DbHandler extends SQLiteOpenHelper {
     public ArrayList<HashMap<String, String>> GetUserByUserId(int userid){
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<HashMap<String, String>> userList = new ArrayList<>();
-        String query = "SELECT main, sub, desc, date, time, priority FROM "+ TABLE_Users;
-        Cursor cursor = db.query(TABLE_Users, new String[]{KEY_MAIN, KEY_SUB, KEY_DESC, KEY_DATE, KEY_TIME, KEY_PRIORITY},
+        String query = "SELECT id, main, sub, desc, date, time, priority FROM "+ TABLE_Users;
+        Cursor cursor = db.query(TABLE_Users, new String[]{KEY_ID, KEY_MAIN, KEY_SUB, KEY_DESC, KEY_DATE, KEY_TIME, KEY_PRIORITY},
                 KEY_ID+ "=?",new String[]{String.valueOf(userid)},
                 null, null, null, null);
         if (cursor.moveToNext()){
             HashMap<String,String> user = new HashMap<>();
+            user.put("id",cursor.getString(cursor.getColumnIndex(KEY_ID)));
             user.put("main",cursor.getString(cursor.getColumnIndex(KEY_MAIN)));
             user.put("sub",cursor.getString(cursor.getColumnIndex(KEY_SUB)));
             user.put("desc",cursor.getString(cursor.getColumnIndex(KEY_DESC)));

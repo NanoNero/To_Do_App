@@ -16,8 +16,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/layout/thing_layout.xml" afterPath="$PROJECT_DIR$/src/main/res/layout/thing_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/DbHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/DbHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/MainActivity.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/MainActivity.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,29 +42,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="201" column="48" lean-forward="false" selection-start-line="201" selection-start-column="48" selection-end-line="201" selection-end-column="48" />
-              <folding />
+      <file leaf-file-name="DbHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/DbHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="72" column="34" lean-forward="false" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="thing_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/thing_layout.xml">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="-3587">
+              <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4221#4229#0" expanded="true" />
+                <element signature="e#5762#5770#0" expanded="true" />
+                <element signature="e#6202#6210#0" expanded="true" />
+                <element signature="e#6925#6933#0" expanded="true" />
+                <element signature="e#11232#12476#0" expanded="true" />
+                <element signature="e#12475#12476#0" expanded="true" />
+              </folding>
             </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
@@ -1054,10 +1058,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/ToDoAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/listview_item.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/DbHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/thing_layout.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/DbHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -1267,7 +1271,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531724191708" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531728956697" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -1315,7 +1319,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531724191709" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531728956697" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1477,7 +1481,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531724191713" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1531728956698" />
       </method>
     </configuration>
     <list size="1">
@@ -1548,7 +1552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531721808139</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Better Layout Styling">
+      <created>1531724224467</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1531724224467</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1629,11 +1640,12 @@
     <MESSAGE value="Added ListView OnItemClickListener" />
     <MESSAGE value="Added ListView OnItemLongClick popup" />
     <MESSAGE value="Change tabs on Edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change tabs on Edit" />
+    <MESSAGE value="Better Layout Styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better Layout Styling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1644,8 +1656,6 @@
           <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetUsers#0;class#DbHandler#0" expanded="false" />
-            <element signature="method#GetUserByUserId#0;class#DbHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1675,26 +1685,26 @@
           <caret line="253" column="19" lean-forward="true" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1954#2338#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2398#2542#0" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2662#2972#0" expanded="true" />
-            <element signature="e#2971#2972#0" expanded="true" />
-            <element signature="e#3034#3178#0" expanded="true" />
-            <element signature="e#3177#3178#0" expanded="true" />
-            <element signature="e#4168#4176#0" expanded="true" />
-            <element signature="e#5709#5717#0" expanded="true" />
-            <element signature="e#6149#6157#0" expanded="true" />
-            <element signature="e#6872#6880#0" expanded="true" />
-            <element signature="e#8245#8968#0" expanded="true" />
-            <element signature="e#8967#8968#0" expanded="true" />
-            <element signature="e#9010#11435#0" expanded="true" />
-            <element signature="e#9416#11379#0" expanded="true" />
-            <element signature="e#11378#11379#0" expanded="true" />
-            <element signature="e#11434#11435#0" expanded="true" />
-            <element signature="e#11471#12232#0" expanded="true" />
-            <element signature="e#12231#12232#0" expanded="true" />
+            <element signature="e#2007#2391#0" expanded="false" />
+            <element signature="e#2390#2391#0" expanded="false" />
+            <element signature="e#2451#2595#0" expanded="false" />
+            <element signature="e#2594#2595#0" expanded="false" />
+            <element signature="e#2715#3025#0" expanded="false" />
+            <element signature="e#3024#3025#0" expanded="false" />
+            <element signature="e#3087#3231#0" expanded="false" />
+            <element signature="e#3230#3231#0" expanded="false" />
+            <element signature="e#4221#4229#0" expanded="true" />
+            <element signature="e#5762#5770#0" expanded="true" />
+            <element signature="e#6202#6210#0" expanded="true" />
+            <element signature="e#6925#6933#0" expanded="true" />
+            <element signature="e#8298#9021#0" expanded="false" />
+            <element signature="e#9020#9021#0" expanded="false" />
+            <element signature="e#9063#11196#0" expanded="false" />
+            <element signature="e#9469#11140#0" expanded="false" />
+            <element signature="e#11139#11140#0" expanded="false" />
+            <element signature="e#11195#11196#0" expanded="false" />
+            <element signature="e#11232#12476#0" expanded="true" />
+            <element signature="e#12475#12476#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1705,8 +1715,6 @@
           <caret line="72" column="68" lean-forward="false" selection-start-line="72" selection-start-column="68" selection-end-line="72" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#GetUsers#0;class#DbHandler#0" expanded="false" />
-            <element signature="method#GetUserByUserId#0;class#DbHandler#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1748,26 +1756,26 @@
           <caret line="220" column="16" lean-forward="false" selection-start-line="220" selection-start-column="16" selection-end-line="220" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1954#2338#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2398#2542#0" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2662#2972#0" expanded="true" />
-            <element signature="e#2971#2972#0" expanded="true" />
-            <element signature="e#3034#3178#0" expanded="true" />
-            <element signature="e#3177#3178#0" expanded="true" />
-            <element signature="e#4168#4176#0" expanded="true" />
-            <element signature="e#5709#5717#0" expanded="true" />
-            <element signature="e#6149#6157#0" expanded="true" />
-            <element signature="e#6872#6880#0" expanded="true" />
-            <element signature="e#8245#8968#0" expanded="true" />
-            <element signature="e#8967#8968#0" expanded="true" />
-            <element signature="e#9010#11435#0" expanded="true" />
-            <element signature="e#9416#11379#0" expanded="true" />
-            <element signature="e#11378#11379#0" expanded="true" />
-            <element signature="e#11434#11435#0" expanded="true" />
-            <element signature="e#11471#12232#0" expanded="true" />
-            <element signature="e#12231#12232#0" expanded="true" />
+            <element signature="e#2007#2391#0" expanded="false" />
+            <element signature="e#2390#2391#0" expanded="false" />
+            <element signature="e#2451#2595#0" expanded="false" />
+            <element signature="e#2594#2595#0" expanded="false" />
+            <element signature="e#2715#3025#0" expanded="false" />
+            <element signature="e#3024#3025#0" expanded="false" />
+            <element signature="e#3087#3231#0" expanded="false" />
+            <element signature="e#3230#3231#0" expanded="false" />
+            <element signature="e#4221#4229#0" expanded="true" />
+            <element signature="e#5762#5770#0" expanded="true" />
+            <element signature="e#6202#6210#0" expanded="true" />
+            <element signature="e#6925#6933#0" expanded="true" />
+            <element signature="e#8298#9021#0" expanded="false" />
+            <element signature="e#9020#9021#0" expanded="false" />
+            <element signature="e#9063#11196#0" expanded="false" />
+            <element signature="e#9469#11140#0" expanded="false" />
+            <element signature="e#11139#11140#0" expanded="false" />
+            <element signature="e#11195#11196#0" expanded="false" />
+            <element signature="e#11232#12476#0" expanded="true" />
+            <element signature="e#12475#12476#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1826,53 +1834,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="266" column="49" lean-forward="true" selection-start-line="266" selection-start-column="49" selection-end-line="266" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1954#2338#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2398#2542#0" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2662#2972#0" expanded="true" />
-            <element signature="e#2971#2972#0" expanded="true" />
-            <element signature="e#3034#3178#0" expanded="true" />
-            <element signature="e#3177#3178#0" expanded="true" />
-            <element signature="e#4168#4176#0" expanded="true" />
-            <element signature="e#5709#5717#0" expanded="true" />
-            <element signature="e#6149#6157#0" expanded="true" />
-            <element signature="e#6872#6880#0" expanded="true" />
-            <element signature="e#8245#8968#0" expanded="true" />
-            <element signature="e#8967#8968#0" expanded="true" />
-            <element signature="e#9010#11435#0" expanded="true" />
-            <element signature="e#9416#11379#0" expanded="true" />
-            <element signature="e#11378#11379#0" expanded="true" />
-            <element signature="e#11434#11435#0" expanded="true" />
-            <element signature="e#11471#12232#0" expanded="true" />
-            <element signature="e#12231#12232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/ThingLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/DbHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="120" column="34" lean-forward="false" selection-start-line="120" selection-start-column="34" selection-end-line="120" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetUsers#0;class#DbHandler#0" expanded="false" />
-            <element signature="method#GetUserByUserId#0;class#DbHandler#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1907,6 +1873,32 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/DbHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="72" column="34" lean-forward="false" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/nerurkar/todoapp/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3587">
+          <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4221#4229#0" expanded="true" />
+            <element signature="e#5762#5770#0" expanded="true" />
+            <element signature="e#6202#6210#0" expanded="true" />
+            <element signature="e#6925#6933#0" expanded="true" />
+            <element signature="e#11232#12476#0" expanded="true" />
+            <element signature="e#12475#12476#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
