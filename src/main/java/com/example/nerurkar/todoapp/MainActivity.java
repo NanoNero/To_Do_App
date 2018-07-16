@@ -237,12 +237,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         if (item.getItemId() == R.id.Delete) {
-
-                            /*String ID = userList.get(position).get("id");
-                            ListAdapter adapter = lv.getAdapter();
-
-                            db.DeleteUser(Integer.parseInt(ID));*/
-
+                            String ID = userList.get(position).get("id");
+                            db.DeleteUser(Integer.parseInt(ID));
+                            setListViewAdapter(lv);
                             Toast.makeText(getApplicationContext(), "Item Deleted!",Toast.LENGTH_LONG).show();
                             return true;
                         }
@@ -260,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
                             Pspinner.setSelection(PspinnerAdapter.getPosition(user.get("priority")));
                             insertFlag = false;
                             userID = Integer.parseInt(user.get("id"));
-                            Toast.makeText(getApplicationContext(), "Editting",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), "Editting",Toast.LENGTH_LONG).show();
                         }
 
                         return false;
